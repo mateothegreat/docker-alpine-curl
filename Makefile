@@ -12,19 +12,9 @@ build:
 					--tag $(NAME):$(VERSION) \
 					.
 
-run: stop
+run: 
 
-	docker run 	--rm -d 				                        \
-				--name $(ALIAS)                                 \
-				$(NAME):$(VERSION) -vv https://google.com
-
-stop:
-
-	docker rm -f $(ALIAS) | true
-
-logs:
-
-	docker logs -f $(ALIAS)
+	docker run -it --rm $(NAME):$(VERSION) -vv https://google.com
 
 shell:
 
